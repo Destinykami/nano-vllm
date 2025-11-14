@@ -11,16 +11,20 @@ license-files = ["LICENSE"]
 readme = "README.md"
 description = "a lightweight vLLM implementation built from scratch"
 requires-python = ">=3.10,<3.13"
+
 dependencies = [
-    "torch>=2.4.0",
-    "triton>=3.0.0",
+    "torch==2.6.0",
+    "triton==3.2.0",  # 与 torch2.6 + flash-attn 匹配
     "transformers>=4.51.0",
-    "flash-attn",
+    "setuptools>=61",
+    # 使用你的本地 flash-attn wheel
+    "flash-attn @ file:///root/autodl-tmp/nano-vllm/flash_attn-2.7.3+cu12torch2.6cxx11abiFALSE-cp311-cp311-linux_x86_64.whl",
+    "modelscope",
     "xxhash",
 ]
 
 [project.urls]
-Homepage="https://github.com/GeeeekExplorer/nano-vllm"
+Homepage = "https://github.com/GeeeekExplorer/nano-vllm"
 
 [tool.setuptools.packages.find]
 where = ["."]
